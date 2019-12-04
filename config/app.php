@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Jakarta',
 
     /*
     |--------------------------------------------------------------------------
@@ -165,7 +165,9 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Modules\Auth\Providers\AuthServiceProvider::class,
+        //Modules\Veltrix\Providers\VeltrixServiceProvider::class,
+        Modules\Dashboard\Providers\DashboardServiceProvider::class,
         /*
          * Application Service Providers...
          */
