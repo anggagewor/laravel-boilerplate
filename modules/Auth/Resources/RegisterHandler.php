@@ -4,12 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 class RegisterHandler extends Controller
 {
-    public function __construct()
-    {
-
-    }
+    public function __construct(){}
     /**
      * __invoke
      *
@@ -18,7 +16,10 @@ class RegisterHandler extends Controller
      * @return void
      */
     public function __invoke(Request $request, Response $response)
-	{
-        return view('auth::register');
-    }
+  	{
+          if(Auth::check()){
+              return redirect()->intended('/dashboard');
+          }
+          return view('auth::register');
+      }
 }
